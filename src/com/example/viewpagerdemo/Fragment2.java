@@ -1,12 +1,16 @@
 package com.example.viewpagerdemo;
 
+import android.os.Handler;
 import android.view.View;
 import android.widget.TextView;
+
+import com.github.androidprogresslayout.ProgressLayout;
 
 public class Fragment2 extends BaseViewPagerFragement {
 
 	private TextView mTvData;
 	private long mData;
+	private ProgressLayout progressLayout;
 
 	@Override
 	protected int getFragmentLayoutId() {
@@ -18,14 +22,22 @@ public class Fragment2 extends BaseViewPagerFragement {
 		super.setupView(view);
 
 		mTvData = (TextView) view.findViewById(R.id.data);
-		mTvData.setText("" + mData);
+		progressLayout = (ProgressLayout) view.findViewById(R.id.progress);
 	}
 
 	@Override
 	protected void lazyFetchData() {
 		super.lazyFetchData();
 
-		mData = System.currentTimeMillis();
-		mTvData.setText("" + mData);
+		new Handler().postDelayed(new Runnable() {
+
+			@Override
+			public void run() {
+				mData = System.currentTimeMillis();
+				mTvData.setText("" + mData);
+
+				progressLayout.showContent();
+			}
+		}, 2000);
 	}
 }

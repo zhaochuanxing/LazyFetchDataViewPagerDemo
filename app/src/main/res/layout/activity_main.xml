@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+	<Button
+		android:id="@+id/change"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="更改adapter"/>
+
+	<com.example.viewpagerdemo.PagerSlidingTabStrip
+		android:id="@+id/tabs"
+		xmlns:app="http://schemas.android.com/apk/res-auto"
+		android:layout_width="match_parent"
+		android:layout_height="50dp"
+		android:drawablePadding="5dp"
+		app:pstsDividerColor="@android:color/transparent"
+		app:pstsDividerPadding="0dp"
+		app:pstsIndicatiorPaddingLeftRight="15dp"
+		app:pstsIndicatorColor="#FF4F73"
+		app:pstsIndicatorHeight="4px"
+		app:pstsShouldExpand="true"
+		app:pstsTabPaddingLeftRight="0dp"
+		app:pstsUnderlineColor="@android:color/transparent"
+		app:pstsUnderlineHeight="0dp"/>
+
+	<android.support.v4.view.ViewPager
+		android:id="@+id/pager"
+		android:layout_width="match_parent"
+		android:layout_height="match_parent"
+		android:layout_below="@+id/tabs"/>
+
+</LinearLayout>
